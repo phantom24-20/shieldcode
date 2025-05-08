@@ -3,18 +3,24 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import emailjs from "emailjs-com";
 import IMAGES from "../assets/Image";
+
 const Container = styled.div`
   padding: 100px 40px;
   background: 
-    // linear-gradient(to bottom, rgba(44, 0, 62, 0.9), rgba(13, 13, 13, 0.95)),
     url(${(props) => props.bg}) center/cover no-repeat;
   color: white;
-  // min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
 
+  @media (max-width: 768px) {
+    padding: 70px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 50px 15px;
+  }
+`;
 
 const Title = styled(motion.h1)`
   font-size: 3rem;
@@ -24,6 +30,14 @@ const Title = styled(motion.h1)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 const Subtitle = styled(motion.p)`
@@ -32,6 +46,16 @@ const Subtitle = styled(motion.p)`
   max-width: 700px;
   text-align: center;
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+    max-width: 90%;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const Form = styled(motion.form)`
@@ -49,6 +73,14 @@ const Form = styled(motion.form)`
     box-shadow: 0 0 30px rgba(229, 46, 113, 0.4);
     transform: translateY(-3px);
   }
+
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
 `;
 
 const Field = styled.div`
@@ -60,6 +92,10 @@ const Field = styled.div`
 const Label = styled.label`
   font-weight: bold;
   color: #ff8a00;
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const Input = styled.input`
@@ -72,6 +108,11 @@ const Input = styled.input`
 
   &:focus {
     outline: 2px solid #e52e71;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 14px;
+    font-size: 0.95rem;
   }
 `;
 
@@ -88,6 +129,11 @@ const Textarea = styled.textarea`
   &:focus {
     outline: 2px solid #e52e71;
   }
+
+  @media (max-width: 480px) {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
 `;
 
 const Button = styled.button`
@@ -103,6 +149,11 @@ const Button = styled.button`
 
   &:hover {
     opacity: 0.9;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    padding: 12px;
   }
 `;
 
@@ -129,6 +180,7 @@ const Contact = () => {
         }
       );
   };
+
   return (
     <Container bg={IMAGES.contactbg}>
       <Title
@@ -147,11 +199,11 @@ const Contact = () => {
       </Subtitle>
 
       <Form
-      ref={form}
-      onSubmit={sendEmail}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6, duration: 0.6 }}
+        ref={form}
+        onSubmit={sendEmail}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.6 }}
       >
         <Field>
           <Label htmlFor="name">Name</Label>

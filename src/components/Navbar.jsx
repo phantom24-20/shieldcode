@@ -11,6 +11,14 @@ const Nav = styled.nav`
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+
+  @media (max-width: 768px) {
+    padding: 15px 30px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 10px 20px;
+  }
 `;
 
 const LogoLink = styled(Link)`
@@ -29,11 +37,23 @@ const Logo = styled.h1`
   &:hover {
     opacity: 0.85;
   }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 const NavLinks = styled.div`
   display: flex;
   gap: 40px;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 15px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -61,6 +81,14 @@ const StyledLink = styled(Link)`
 
   &:hover::after {
     width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
   }
 `;
 

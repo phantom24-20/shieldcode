@@ -9,12 +9,20 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   align-items: center;
   border-top: 1px solid #222;
+
+  @media (max-width: 768px) {
+    padding: 20px 10px;
+  }
 `;
 
 const FooterTop = styled.div`
   margin-bottom: 16px;
   text-align: center;
   max-width: 600px;
+
+  @media (max-width: 768px) {
+    max-width: 90%;
+  }
 `;
 
 const Brand = styled.h3`
@@ -35,9 +43,42 @@ const FooterLinks = styled.div`
   gap: 16px;
   justify-content: center;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
 `;
 
 const FooterLink = styled(Link)`
+  color: #bbb;
+  text-decoration: none;
+  font-size: 13px;
+  position: relative;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff8a00;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+`;
+
+const FooterExternalLink = styled.a`
   color: #bbb;
   text-decoration: none;
   font-size: 13px;
@@ -74,6 +115,11 @@ const FooterBottom = styled.div`
   padding-top: 10px;
   border-top: 1px solid #222;
   width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 11px;
+    max-width: 90%;
+  }
 `;
 
 const Footer = () => {
@@ -85,10 +131,17 @@ const Footer = () => {
       </FooterTop>
 
       <FooterLinks>
-        <FooterLink to="/terms">Terms & Conditions</FooterLink>
-        <FooterLink to="/privacy">Privacy Policy</FooterLink>
-        <FooterLink to="/company-policy">Company Policy</FooterLink>
-        <FooterLink to="/contact">Contact Us</FooterLink>
+        <FooterExternalLink href="/terms" target="_blank" rel="noopener noreferrer">
+          Terms & Conditions
+        </FooterExternalLink>
+
+        <FooterExternalLink href="/privacy" target="_blank" rel="noopener noreferrer">
+          Privacy Policy
+        </FooterExternalLink>
+
+        <FooterLink to="/contact">
+          Contact Us
+        </FooterLink>
       </FooterLinks>
 
       <FooterBottom>

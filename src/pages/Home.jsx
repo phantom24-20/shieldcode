@@ -9,13 +9,54 @@ import "swiper/css/pagination";
 const Container = styled.div`
   padding: 100px 40px;
   text-align: center;
-  // background: linear-gradient(to bottom, #2c003e, #0d0d0d);
   color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    padding: 70px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 50px 15px;
+  }
+`;
+
+const Title = styled(motion.h1)`
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #ffb84d, #ff4c8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+`;
+
+const Subtitle = styled.p`
+  font-size: 1.3rem;
+  color: #ccc;
+  max-width: 600px;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 const Description = styled.p`
@@ -25,29 +66,30 @@ const Description = styled.p`
   line-height: 1.8;
   text-align: center;
   margin-bottom: 50px;
-`;
-const Title = styled(motion.h1)`
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  background: linear-gradient(90deg, #ffb84d, #ff4c8b); /* mid-tone darker gradient */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* stronger, deeper shadow */
-`;
 
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    max-width: 90%;
+    margin-bottom: 40px;
+  }
 
-
-const Subtitle = styled.p`
-  font-size: 1.3rem;
-  color: #ccc;
-  max-width: 600px;
-  margin-bottom: 40px;
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+  }
 `;
 
 const CarouselWrapper = styled.div`
   width: 90%;
   max-width: 900px;
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const StyledImage = styled.img`
@@ -59,6 +101,7 @@ const StyledImage = styled.img`
 
 const imageArray = Object.values(IMAGES);
 const selectedImages = [IMAGES.img1, IMAGES.img2, IMAGES.img3, IMAGES.img4];
+
 const Home = () => (
   <Container>
     <Title
@@ -94,6 +137,7 @@ const Home = () => (
         breakpoints={{
           640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
+          480: { slidesPerView: 1 },
         }}
       >
         {selectedImages.map((src, index) => (
